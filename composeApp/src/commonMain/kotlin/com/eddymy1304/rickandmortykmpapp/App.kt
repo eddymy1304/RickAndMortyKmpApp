@@ -1,9 +1,9 @@
 package com.eddymy1304.rickandmortykmpapp
 
 import androidx.compose.runtime.Composable
-import org.jetbrains.compose.ui.tooling.preview.Preview
+import com.eddymy1304.rickandmortykmpapp.ui.MainScreen
 
 @Composable
-@Preview
 fun App() {
+    MainScreen()
 }
