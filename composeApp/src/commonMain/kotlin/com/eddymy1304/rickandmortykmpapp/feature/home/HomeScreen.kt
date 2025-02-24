@@ -1,18 +1,32 @@
 package com.eddymy1304.rickandmortykmpapp.feature.home
 
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.Text
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.navigation.compose.rememberNavController
+import com.eddymy1304.rickandmortykmpapp.feature.home.components.HomeNavHost
+import com.eddymy1304.rickandmortykmpapp.feature.home.navigation.BottomBarDestination
+import com.eddymy1304.rickandmortykmpapp.ui.components.HomeBottomBar
 
 @Composable
 fun HomeScreen(
     modifier: Modifier = Modifier
 ) {
-    Box(modifier = modifier.fillMaxSize()) {
-        Text(text = "Esta vaina funciona", modifier = Modifier.align(Alignment.Center))
+    val navController = rememberNavController()
+
+    Scaffold(
+        bottomBar = {
+            HomeBottomBar(
+                navController = navController,
+                items = BottomBarDestination.entries.toMutableList()
+            )
+        }
+    ) { paddingValues ->
+        HomeNavHost(
+            modifier = modifier.padding(paddingValues),
+            navController = navController
+        )
     }
+
 }
