@@ -17,6 +17,7 @@ kotlin = "2.1.10"
 
 navigationVersion = "2.8.0-alpha13"
 serializationVersion = "1.8.0"
+koinVersion = "4.1.0-Beta5"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -37,6 +38,13 @@ androidx-navigation-compose = { module = "org.jetbrains.androidx.navigation:navi
 
 # Serialization
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "serializationVersion" }
+
+# Koin DI
+koin-bom = { module = "io.insert-koin:koin-bom", version.ref = "koinVersion" }
+koin-core = { module = "io.insert-koin:koin-core" }
+koin-compose = { module = "io.insert-koin:koin-compose" }
+koin-compose-viewmodel = { module = "io.insert-koin:koin-compose-viewmodel" }
+koin-android = {module = "io.insert-koin:koin-android"}
 
 [plugins]
 
