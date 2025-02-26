@@ -18,6 +18,7 @@ kotlin = "2.1.10"
 navigationVersion = "2.8.0-alpha13"
 serializationVersion = "1.8.0"
 koinVersion = "4.1.0-Beta5"
+ktorVersion = "3.1.0"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -44,7 +45,15 @@ koin-bom = { module = "io.insert-koin:koin-bom", version.ref = "koinVersion" }
 koin-core = { module = "io.insert-koin:koin-core" }
 koin-compose = { module = "io.insert-koin:koin-compose" }
 koin-compose-viewmodel = { module = "io.insert-koin:koin-compose-viewmodel" }
-koin-android = {module = "io.insert-koin:koin-android"}
+koin-android = { module = "io.insert-koin:koin-android" }
+
+
+#Ktor
+ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktorVersion" }
+ktor-client-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktorVersion" }
+ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktorVersion" }
+ktor-client-darwin = { module = "io.ktor:ktor-client-darwin", version.ref = "ktorVersion" }
+ktor-serialization-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktorVersion" }
 
 [plugins]
 
