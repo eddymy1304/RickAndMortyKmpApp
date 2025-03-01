@@ -16,3 +16,5 @@ object CharacterMapper : ResponseToDomainMapper<CharacterResponse, CharacterMode
 }
 
 fun CharacterResponse.toDomain() = CharacterMapper.toDomain(this)
+
+fun List<CharacterResponse>.toDomain() = map { it.toDomain() }

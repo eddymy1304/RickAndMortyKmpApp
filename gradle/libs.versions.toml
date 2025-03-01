@@ -20,6 +20,7 @@ serializationVersion = "1.8.0"
 koinVersion = "4.1.0-Beta5"
 ktorVersion = "3.1.0"
 coilVersion = "3.1.0"
+pagingVersion = "3.3.0-alpha02-0.5.1"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -62,6 +63,10 @@ ktor-serialization-json = { module = "io.ktor:ktor-serialization-kotlinx-json", 
 # Coil
 coil-compose = { module = "io.coil-kt.coil3:coil-compose", version.ref = "coilVersion" }
 coil-network = { module = "io.coil-kt.coil3:coil-network-okhttp", version.ref = "coilVersion" }
+
+# Paging
+paging-common = { module = "app.cash.paging:paging-common", version.ref = "pagingVersion" }
+paging-compose-common = { module = "app.cash.paging:paging-compose-common", version.ref = "pagingVersion" }
 
 [plugins]
 
