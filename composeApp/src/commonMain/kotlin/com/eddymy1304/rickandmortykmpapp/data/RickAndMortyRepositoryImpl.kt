@@ -42,7 +42,7 @@ class RickAndMortyRepositoryImpl(
         }
     }
 
-    override fun getAllCharacters(page: Int): Flow<PagingData<CharacterModel>> {
+    override fun getAllCharacters(): Flow<PagingData<CharacterModel>> {
         return Pager(
             config = PagingConfig(
                 pageSize = PAGE_SIZE,

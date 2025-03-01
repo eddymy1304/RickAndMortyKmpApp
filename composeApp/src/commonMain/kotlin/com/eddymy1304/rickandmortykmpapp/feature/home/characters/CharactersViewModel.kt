@@ -2,6 +2,7 @@ package com.eddymy1304.rickandmortykmpapp.feature.home.characters
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.eddymy1304.rickandmortykmpapp.domain.RickAndMortyRepository
 import com.eddymy1304.rickandmortykmpapp.domain.usecase.GetRandomCharacter
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -10,7 +11,8 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.flow.update
 
 class CharactersViewModel(
-    private val getRandomCharacter: GetRandomCharacter
+    private val getRandomCharacter: GetRandomCharacter,
+    private val repository: RickAndMortyRepository
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(CharactersState())
@@ -35,6 +37,14 @@ class CharactersViewModel(
                 }
 
         }
+        getAllCharacters()
     }
 
+    private fun getAllCharacters() {
+        _uiState.update {
+            it.copy(
+                characters = repository.getAllCharacters()
+            )
+        }
+    }
 }

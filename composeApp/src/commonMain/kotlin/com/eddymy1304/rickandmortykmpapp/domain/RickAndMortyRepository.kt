@@ -8,5 +8,5 @@ interface RickAndMortyRepository {
 
     suspend fun getSingleCharacter(id: Int): Result<CharacterModel>
 
-    fun getAllCharacters(page: Int): Flow<PagingData<CharacterModel>>
+    fun getAllCharacters(): Flow<PagingData<CharacterModel>>
 }
