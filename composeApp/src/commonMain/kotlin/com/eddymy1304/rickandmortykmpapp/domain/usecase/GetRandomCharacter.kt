@@ -7,7 +7,7 @@ class GetRandomCharacter(
     private val repository: RickAndMortyRepository
 ) {
 
-    suspend operator fun invoke(): CharacterModel {
+    suspend operator fun invoke(): Result<CharacterModel> {
         val random = (1..826).random()
         return repository.getSingleCharacter(random)
     }
