@@ -8,8 +8,8 @@ fun Modifier.vertical(): Modifier = layout { measurable, constraints ->
 
     layout(placeable.height, placeable.width) {
         placeable.place(
-            x = -((placeable.width / 2) - (placeable.height / 2)),
-            y = -((placeable.height / 2) - (placeable.width / 2))
+            x = -(placeable.width / 2 - placeable.height / 2),
+            y = -(placeable.height / 2 - placeable.width / 2)
         )
     }
 }

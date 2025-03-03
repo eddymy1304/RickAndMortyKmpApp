@@ -75,8 +75,8 @@ fun CharactersScreen(
     Column(
         modifier = modifier.fillMaxSize()
     ) {
-
         CharactersGrid(
+            modifier = Modifier.fillMaxSize().padding(horizontal = 16.dp),
             characterOfTheDay = state.characterOfTheDay,
             characters = characters
         )
@@ -140,13 +140,15 @@ fun CharactersGrid(
                 }
 
 
-                if (characters.loadState.refresh is LoadState.Loading) {
+                if (characters.loadState.append is LoadState.Loading) {
                     item(span = { GridItemSpan(2) }) {
                         Box(
-                            modifier = modifier.fillMaxSize(),
+                            modifier = modifier
+                                .height(120.dp)
+                                .fillMaxWidth(),
                             contentAlignment = Alignment.Center
                         ) {
-                            CircularProgressIndicator()
+                            CircularProgressIndicator(color = Color.Green)
                         }
                     }
                 }
