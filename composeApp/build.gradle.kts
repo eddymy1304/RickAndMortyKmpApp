@@ -71,6 +71,8 @@ kotlin {
 
             implementation(libs.paging.compose.common)
             implementation(libs.paging.common)
+
+            implementation(libs.kotlinx.datetime)
         }
 
         iosMain.dependencies {
