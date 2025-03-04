@@ -4,7 +4,7 @@ android-compileSdk = "35"
 android-minSdk = "26"
 android-targetSdk = "35"
 androidx-activityCompose = "1.10.1"
-androidx-lifecycle = "2.9.0-alpha03"
+lifecycleVersion = "2.8.4"
 compose-multiplatform = "1.7.0"
 kotlin = "2.1.10"
 
@@ -15,18 +15,31 @@ ktorVersion = "3.1.0"
 coilVersion = "3.1.0"
 pagingVersion = "3.3.0-alpha02-0.5.1"
 coroutinesVersion = "1.10.1"
+composeVersion = "1.8.0-alpha03"
+iconsExtendedVersion = "1.7.3"
 
 [libraries]
 
 # Coroutines
 kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutinesVersion" }
 
+# Compose
+compose-foundation = { module = "org.jetbrains.compose.foundation:foundation", version.ref = "composeVersion" }
+compose-runtime = { module = "org.jetbrains.compose.runtime:runtime", version.ref = "composeVersion" }
+compose-ui = { module = "org.jetbrains.compose.ui:ui", version.ref = "composeVersion" }
+compose-ui-tooling = { module = "org.jetbrains.compose.ui:ui-tooling", version.ref = "composeVersion" }
+compose-ui-tooling-preview = { module = "org.jetbrains.compose.ui:ui-tooling-preview", version.ref = "composeVersion" }
+compose-material3 = { module = "org.jetbrains.compose.material3:material3", version.ref = "composeVersion" }
+compose-material-icons-extended = { module = "org.jetbrains.compose.material:material-icons-extended", version.ref = "iconsExtendedVersion" }
+compose-components-resources = { module = "org.jetbrains.compose.components:components-resources", version.ref = "composeVersion" }
+compose-components-uiToolingPreview = { module = "org.jetbrains.compose.components:components-ui-tooling-preview", version.ref = "composeVersion" }
+
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
-androidx-lifecycle-viewmodel = { group = "org.jetbrains.androidx.lifecycle", name = "lifecycle-viewmodel", version.ref = "androidx-lifecycle" }
-androidx-lifecycle-runtime-compose = { group = "org.jetbrains.androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "androidx-lifecycle" }
+
+androidx-lifecycle-runtime-compose = { module = "org.jetbrains.androidx.lifecycle:lifecycle-runtime-compose", version.ref = "lifecycleVersion" }
 
 # Viewmodel Kmp
-androidx-lifecycle-viewmodel-compose = { group = "org.jetbrains.androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "androidx-lifecycle" }
+androidx-lifecycle-viewmodel-compose = { module = "org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycleVersion" }
 
 # Navigation
 androidx-navigation-compose = { module = "org.jetbrains.androidx.navigation:navigation-compose", version.ref = "navigationVersion" }
