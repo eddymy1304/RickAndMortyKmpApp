@@ -18,6 +18,9 @@ coroutinesVersion = "1.10.1"
 composeVersion = "1.8.0-alpha03"
 iconsExtendedVersion = "1.7.3"
 datetimeVersion = "0.6.1"
+roomVersion = "2.7.0-rc01"
+sqliteVersion = "2.5.0-rc01"
+kspVersion = "2.1.10-1.0.31"
 
 [libraries]
 
@@ -74,6 +77,11 @@ paging-compose-common = { module = "app.cash.paging:paging-compose-common", vers
 # Date
 kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "datetimeVersion" }
 
+# Room
+androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "roomVersion" }
+androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomVersion" }
+androidx-sqlite-bundled = { module = "androidx.sqlite:sqlite-bundled", version.ref = "sqliteVersion" }
+
 [plugins]
 
 androidApplication = { id = "com.android.application", version.ref = "agp" }
@@ -83,3 +91,6 @@ composeCompiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "k
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 
 kotlinSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+
+devtools-ksp = { id = "com.google.devtools.ksp", version.ref = "kspVersion" }
+room = { id = "androidx.room", version.ref = "roomVersion" }

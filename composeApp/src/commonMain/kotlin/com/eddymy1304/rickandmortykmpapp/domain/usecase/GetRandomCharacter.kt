@@ -12,6 +12,7 @@ class GetRandomCharacter(
 
     suspend operator fun invoke(): Result<CharacterModel> {
         val random = (1..826).random()
+        repository.getCharacterOfTheDayDb()
         return repository.getSingleCharacter(random)
     }
 

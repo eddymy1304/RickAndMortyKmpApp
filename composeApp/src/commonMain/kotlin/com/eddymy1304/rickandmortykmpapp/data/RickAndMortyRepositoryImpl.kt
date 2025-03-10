@@ -3,6 +3,7 @@ package com.eddymy1304.rickandmortykmpapp.data
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
+import com.eddymy1304.rickandmortykmpapp.data.database.RickAndMortyDatabase
 import com.eddymy1304.rickandmortykmpapp.data.remote.ApiService
 import com.eddymy1304.rickandmortykmpapp.data.remote.paging.CharactersPagingSource
 import com.eddymy1304.rickandmortykmpapp.domain.RickAndMortyRepository
@@ -17,7 +18,8 @@ import kotlinx.coroutines.withContext
 
 class RickAndMortyRepositoryImpl(
     private val apiService: ApiService,
-    private val charactersPagingSource: CharactersPagingSource
+    private val charactersPagingSource: CharactersPagingSource,
+    private val rickAndMortyDatabase: RickAndMortyDatabase
 ) : RickAndMortyRepository {
 
     companion object {
@@ -51,5 +53,9 @@ class RickAndMortyRepositoryImpl(
             pagingSourceFactory = { charactersPagingSource }
 
         ).flow
+    }
+
+    override suspend fun getCharacterOfTheDayDb() {
+        rickAndMortyDatabase.getUserPreferencesCharacterDao().getCharacterOfTheDayDb()
     }
 }

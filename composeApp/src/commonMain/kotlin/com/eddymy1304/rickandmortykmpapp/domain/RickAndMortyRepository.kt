@@ -9,4 +9,6 @@ interface RickAndMortyRepository {
     suspend fun getSingleCharacter(id: Int): Result<CharacterModel>
 
     fun getAllCharacters(): Flow<PagingData<CharacterModel>>
+
+    suspend fun getCharacterOfTheDayDb()
 }
