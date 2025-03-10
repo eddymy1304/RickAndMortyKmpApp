@@ -3,7 +3,7 @@ package com.eddymy1304.rickandmortykmpapp.data.remote.paging
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.eddymy1304.rickandmortykmpapp.data.remote.ApiService
-import com.eddymy1304.rickandmortykmpapp.domain.mapper.toDomain
+import com.eddymy1304.rickandmortykmpapp.domain.mapper.toDomainFromResponse
 import com.eddymy1304.rickandmortykmpapp.domain.model.CharacterModel
 
 class CharactersPagingSource(private val apiService: ApiService) :
@@ -22,7 +22,7 @@ class CharactersPagingSource(private val apiService: ApiService) :
             val next = if (response.info.next != null) page + 1 else null
 
             LoadResult.Page(
-                data = characters.toDomain(),
+                data = characters.toDomainFromResponse(),
                 prevKey = prev,
                 nextKey = next
             )
