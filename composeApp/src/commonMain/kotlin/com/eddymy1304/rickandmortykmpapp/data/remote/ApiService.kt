@@ -2,6 +2,7 @@ package com.eddymy1304.rickandmortykmpapp.data.remote
 
 import com.eddymy1304.rickandmortykmpapp.data.remote.response.CharacterResponse
 import com.eddymy1304.rickandmortykmpapp.data.remote.response.GetAllCharactersResponse
+import com.eddymy1304.rickandmortykmpapp.data.remote.response.GetAllEpisodesResponse
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.request.get
@@ -18,6 +19,12 @@ class ApiService(
 
     suspend fun getAllCharacters(page: Int): GetAllCharactersResponse {
         return client.get("https://rickandmortyapi.com/api/character") {
+            parameter("page", page)
+        }.body()
+    }
+
+    suspend fun getAllEpisodes(page: Int): GetAllEpisodesResponse {
+        return client.get("https://rickandmortyapi.com/api/episode") {
             parameter("page", page)
         }.body()
     }

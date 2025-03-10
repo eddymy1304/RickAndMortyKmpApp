@@ -3,6 +3,7 @@ package com.eddymy1304.rickandmortykmpapp.di
 import com.eddymy1304.rickandmortykmpapp.data.RickAndMortyRepositoryImpl
 import com.eddymy1304.rickandmortykmpapp.data.remote.ApiService
 import com.eddymy1304.rickandmortykmpapp.data.remote.paging.CharactersPagingSource
+import com.eddymy1304.rickandmortykmpapp.data.remote.paging.EpisodesPagingSource
 import com.eddymy1304.rickandmortykmpapp.domain.RickAndMortyRepository
 import io.ktor.client.HttpClient
 import io.ktor.client.plugins.DefaultRequest
@@ -49,4 +50,6 @@ val dataModule = module {
     factoryOf(::RickAndMortyRepositoryImpl) bind RickAndMortyRepository::class
 
     factoryOf(::CharactersPagingSource)
+
+    factoryOf(::EpisodesPagingSource)
 }

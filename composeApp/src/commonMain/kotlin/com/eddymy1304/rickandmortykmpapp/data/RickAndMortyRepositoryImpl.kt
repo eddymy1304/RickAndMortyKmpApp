@@ -7,11 +7,13 @@ import com.eddymy1304.rickandmortykmpapp.data.database.RickAndMortyDatabase
 import com.eddymy1304.rickandmortykmpapp.data.database.entity.CharacterEntity
 import com.eddymy1304.rickandmortykmpapp.data.remote.ApiService
 import com.eddymy1304.rickandmortykmpapp.data.remote.paging.CharactersPagingSource
+import com.eddymy1304.rickandmortykmpapp.data.remote.paging.EpisodesPagingSource
 import com.eddymy1304.rickandmortykmpapp.domain.RickAndMortyRepository
 import com.eddymy1304.rickandmortykmpapp.domain.mapper.toDomainFromEntity
 import com.eddymy1304.rickandmortykmpapp.domain.mapper.toDomainFromResponse
 import com.eddymy1304.rickandmortykmpapp.domain.model.CharacterModel
 import com.eddymy1304.rickandmortykmpapp.domain.model.CharacterOfTheDayModel
+import com.eddymy1304.rickandmortykmpapp.domain.model.EpisodeModel
 import io.ktor.client.call.DoubleReceiveException
 import io.ktor.client.call.NoTransformationFoundException
 import kotlinx.coroutines.Dispatchers
@@ -22,6 +24,7 @@ import kotlinx.coroutines.withContext
 class RickAndMortyRepositoryImpl(
     private val apiService: ApiService,
     private val charactersPagingSource: CharactersPagingSource,
+    private val episodesPagingSource: EpisodesPagingSource,
     private val rickAndMortyDatabase: RickAndMortyDatabase
 ) : RickAndMortyRepository {
 
@@ -69,5 +72,15 @@ class RickAndMortyRepositoryImpl(
         rickAndMortyDatabase
             .getUserPreferencesCharacterDao()
             .saveCharacterOfTheDayDb(entity)
+    }
+
+    override fun getAllEpisodes(): Flow<PagingData<EpisodeModel>> {
+        return Pager(
+            config = PagingConfig(
+                pageSize = PAGE_SIZE,
+                prefetchDistance = PREFETCH_DISTANCE
+            ),
+            pagingSourceFactory = { episodesPagingSource }
+        ).flow
     }
 }

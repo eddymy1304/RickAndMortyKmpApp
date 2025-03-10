@@ -2,6 +2,7 @@ package com.eddymy1304.rickandmortykmpapp.feature.home.characters
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.paging.cachedIn
 import com.eddymy1304.rickandmortykmpapp.domain.RickAndMortyRepository
 import com.eddymy1304.rickandmortykmpapp.domain.usecase.GetRandomCharacter
 import kotlinx.coroutines.flow.StateFlow
@@ -43,7 +44,7 @@ class CharactersViewModel(
     private fun getAllCharacters() {
         _uiState.update {
             it.copy(
-                characters = repository.getAllCharacters()
+                characters = repository.getAllCharacters().cachedIn(viewModelScope)
             )
         }
     }
